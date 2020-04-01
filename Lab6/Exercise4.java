@@ -18,6 +18,7 @@ public class Exercise4 {
                     reverse = reverse + str[i].charAt(j);
                 }
                 System.out.print(reverse + " ");
+                reverse = "";
             } else {
                 System.out.print(str[i] + " ");
             }

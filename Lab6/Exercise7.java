@@ -5,10 +5,16 @@ public class Exercise7 {
         Scanner sc = new Scanner(System.in);
 
         String s1 = sc.nextLine();
-        moreAs(s1);
+        System.out.println(moreAs(s1));
     }
 
-    public static void moreAs(String s1) {
-        
+    public static String moreAs(String s1) {
+        if (s1.isEmpty()) {
+            return s1;
+        } else if (s1.charAt(0) == 'a') {
+            return "aaa" + moreAs(s1.substring(1));
+        } else {
+            return s1.charAt(0) + moreAs(s1.substring(1));
+        }
     }
 }

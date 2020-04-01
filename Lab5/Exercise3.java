@@ -4,22 +4,28 @@ public class Exercise3 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int n = sc.nextInt();
-        double ans = sumTo(n);
-        ans = Math.round(ans * 100.0) / 100.0;
-        System.out.println(ans);
-
+        int input = sc.nextInt();
+        System.out.println(evenDigits(input));
     }
+    public static int evenDigits(int num){
+        String s_num = Integer.toString(num);
+        if(s_num.equals("0")){
+            return num;
+        }else{
+            String lastDigit = s_num.charAt(s_num.length()-1) + "";
 
-    public static double sumTo(int n) {
+            if(lastDigit.matches("[013579]")){
+                s_num = s_num.substring(0, s_num.length()-1);
 
-        if (n < 0) {
-            throw new IllegalArgumentException("Illegal Power Argument");
+                if(s_num.length() == 0){
+                    return evenDigits(0);
+                }else{
+                    return evenDigits(Integer.parseInt(s_num));
+                }
+            }else{
+                num = num/10;
+                return Integer.parseInt(Integer.toString(evenDigits(num)) + lastDigit);
+            }
         }
-
-        if (n == 0) {
-            return 0.0;
-        }
-        return sumTo(n - 1) + (1 / (double) n);
     }
 }
