@@ -27,6 +27,7 @@ public class Exercise4 {
                 low = middle + 1;
                 counter++;
             }else{
+                counter++;
                 found = true;
             }
         }
